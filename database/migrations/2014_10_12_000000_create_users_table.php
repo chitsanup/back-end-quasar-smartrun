@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('age')->nullable();
             $table->string('gender')->nullable();
-            $table->string('profilepic')->nullable();
+            $table->longText('profilepic')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

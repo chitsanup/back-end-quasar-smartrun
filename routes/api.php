@@ -30,3 +30,4 @@ Route::group([
 });
 
 Route::resource('/edit',EditProfile::class);
+Route::resource('/rundata',RundataController::class);
