@@ -13,16 +13,17 @@ class Rundata extends Migration
      */
     public function up()
     {
-        Schema::create('rundata', function (Blueprint $table) {
+        Schema::create('rundatas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('userid')->nullable();
+            $table->bigInteger('user_id');
             $table->string('runmode')->nullable();
             $table->string('runtime')->nullable();
             $table->string('rundistance')->nullable();
-            $table->string('runcal')->nullable();
-            $table->string('hrbegin')->nullable();
+            $table->string('hraverage')->nullable();
+            $table->string('calorie')->nullable();
             $table->string('hrgraph')->nullable();
             $table->string('gpsdistance')->nullable();
+            $table->string('daterun')->nullable();
             $table->timestamps();
         });
     }
@@ -34,6 +35,6 @@ class Rundata extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('rundatas');
     }
 }

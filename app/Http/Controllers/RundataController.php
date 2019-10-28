@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Rundata;
+use Illuminate\Support\Facades\Auth;
 
 class RundataController extends Controller
 {
@@ -15,7 +16,13 @@ class RundataController extends Controller
 
     public function index()
     {
-        return Rundata::where('userid',$id)->get();
+        $id = $_GET['id'];
+        return Rundata::where('user_id',$id)->get();
+        /*$query = Rundata::query();
+        $query->with('user');
+
+        $forms = $query->get();
+        return $forms;*/
     }
 
     /**
@@ -36,9 +43,11 @@ class RundataController extends Controller
      */
     public function store(Request $request)
     {
+        $user = Auth::user();
         $data = new Rundata();
-        $data->fill($request->all()); 
-        $save = $data->save();
+        $data->fill($request->all());
+        $data->user()->associate($user); 
+        $data->save();
         return $data;
     }
 

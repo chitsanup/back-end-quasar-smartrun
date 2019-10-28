@@ -85,4 +85,9 @@ class EditProfile extends Controller
     {
         //
     }
+
+    public function getSound(){
+        $list = \DB::table('sounds')->get();
+        return $list;
+    }
 }

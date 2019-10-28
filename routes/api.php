@@ -28,6 +28,11 @@ Route::group([
         Route::get('user', 'AuthController@user');
     });
 });
+Route::middleware(['auth:api'])->group(function () {
+    //all route
+    Route::resource('/rundata',RundataController::class);
 
+});
 Route::resource('/edit',EditProfile::class);
-Route::resource('/rundata',RundataController::class);
+
+Route::get('/sound','EditProfile@getSound');
