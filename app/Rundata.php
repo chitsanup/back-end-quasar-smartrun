@@ -10,7 +10,7 @@ class Rundata extends Model
     
     protected $fillable = [
         'runmode','runtime','rundistance','hraverage',
-        'runcalorie','hrgraph','gpsdistance','daterun'
+        'runcalorie','ygraph','xgraph','gpsdistance','daterun'
     ]; 
     public function user(){
         return $this->belongsTo(User::class);

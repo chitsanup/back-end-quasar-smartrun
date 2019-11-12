@@ -21,7 +21,8 @@ class Rundata extends Migration
             $table->string('rundistance')->nullable();
             $table->string('hraverage')->nullable();
             $table->string('runcalorie')->nullable();
-            $table->string('hrgraph')->nullable();
+            $table->string('ygraph')->nullable();
+            $table->string('xgraph')->nullable();
             $table->string('gpsdistance')->nullable();
             $table->string('daterun')->nullable();
             $table->timestamps();
